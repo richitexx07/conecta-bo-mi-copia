@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conecta-BO - Acceso Móvil</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #D52B1E 0%, #FCD116 50%, #007A3D 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #007A3D;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        .qr-container {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            display: inline-block;
+            margin: 20px 0;
+            border: 3px solid #FCD116;
+        }
+        .qr-container img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+        .url-box {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            word-break: break-all;
+        }
+        .url-link {
+            color: #007A3D;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .url-link:hover {
+            text-decoration: underline;
+        }
+        .instructions {
+            text-align: left;
+            margin-top: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+        }
+        .instructions h3 {
+            color: #D52B1E;
+            margin-bottom: 15px;
+        }
+        .instructions ol {
+            margin-left: 20px;
+        }
+        .instructions li {
+            margin: 10px 0;
+            color: #333;
+        }
+        .status {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .status.online {
+            background: #4CAF50;
+            color: white;
+        }
+        .status.offline {
+            background: #f44336;
+            color: white;
+        }
+        .copy-btn {
+            background: #007A3D;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        .copy-btn:hover {
+            background: #005a2d;
+        }
+        .copy-btn:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🇧🇴 conecta-bo</div>
+        <p class="subtitle">Cooperativa Digital Boliviana</p>
+        
+        <div id="status" class="status offline">Verificando conexión...</div>
+        
+        <div class="qr-container">
+            <img src="/qr-code.png" alt="Código QR" id="qr-image">
+        </div>
+        
+        <div class="url-box">
+            <a href="http://192.168.100.16:3000" class="url-link" id="app-url" target="_blank">
+                http://192.168.100.16:3000
+            </a>
+            <br>
+            <button class="copy-btn" onclick="copyUrl()">📋 Copiar URL</button>
+        </div>
+        
+        <div class="instructions">
+            <h3>📱 Cómo acceder desde tu celular:</h3>
+            <ol>
+                <li>Asegúrate de que el servidor esté corriendo: <code>npm run dev</code></li>
+                <li>Conecta tu celular a la misma red WiFi que tu computadora</li>
+                <li>Escanea el código QR con la cámara de tu celular</li>
+                <li>O copia y pega la URL en el navegador de tu celular</li>
+            </ol>
+            <p style="margin-top: 15px; color: #666; font-size: 12px;">
+                💡 <strong>Nota:</strong> Si no puedes acceder, verifica que el firewall de Windows permita conexiones en el puerto 3000.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const URL = 'http://192.168.100.16:3000';
+        const statusEl = document.getElementById('status');
+        const qrImage = document.getElementById('qr-image');
+        const appUrl = document.getElementById('app-url');
+
+        // Verificar si el servidor está online
+        async function checkServer() {
+            try {
+                const response = await fetch(URL, { method: 'HEAD', mode: 'no-cors' });
+                statusEl.textContent = '✅ Servidor Online';
+                statusEl.className = 'status online';
+            } catch (error) {
+                statusEl.textContent = '⚠️ Servidor Offline - Ejecuta: npm run dev';
+                statusEl.className = 'status offline';
+            }
+        }
+
+        // Copiar URL al portapapeles
+        function copyUrl() {
+            navigator.clipboard.writeText(URL).then(() => {
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = '✅ Copiado!';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                }, 2000);
+            }).catch(err => {
+                alert('Error al copiar. URL: ' + URL);
+            });
+        }
+
+        // Verificar servidor cada 5 segundos
+        checkServer();
+        setInterval(checkServer, 5000);
+
+        // Si la imagen QR no carga, mostrar mensaje
+        qrImage.onerror = function() {
+            this.alt = 'Código QR no disponible. Usa la URL directamente.';
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<svg width="192" height="192" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="redPat" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="8" fill="#C41E1A" opacity="0.3"/>
+      <circle cx="10" cy="10" r="5" fill="#E63946" opacity="0.4"/>
+      <path d="M 10 2 L 10 18 M 2 10 L 18 10" stroke="#FF4444" stroke-width="0.5" opacity="0.5"/>
+    </pattern>
+    <pattern id="whitePat" x="0" y="0" width="15" height="15" patternUnits="userSpaceOnUse">
+      <circle cx="7.5" cy="7.5" r="6" fill="#F0F0F0" opacity="0.5"/>
+      <circle cx="7.5" cy="7.5" r="3" fill="#E0E0E0" opacity="0.4"/>
+    </pattern>
+    <pattern id="bluePat" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle cx="9" cy="9" r="7" fill="#002A6C" opacity="0.3"/>
+      <circle cx="9" cy="9" r="4" fill="#0047AB" opacity="0.4"/>
+    </pattern>
+    <linearGradient id="depthGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.15"/>
+      <stop offset="50%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.15"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="200" height="200" fill="#F3F4F6"/>
+  
+  <!-- Sombra -->
+  <ellipse cx="100" cy="172" rx="55" ry="8" fill="#000000" opacity="0.15"/>
+  
+  <!-- Tirantes -->
+  <path d="M 55 30 L 45 45 L 43 125 L 48 165" stroke="#0038A8" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.8"/>
+  <path d="M 55 30 L 45 45 L 43 125 L 48 165" stroke="#002A6C" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M 145 30 L 155 45 L 157 125 L 152 165" stroke="#0038A8" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.8"/>
+  <path d="M 145 30 L 155 45 L 157 125 L 152 165" stroke="#002A6C" stroke-width="6" fill="none" stroke-linecap="round"/>
+  
+  <rect x="40" y="30" width="120" height="50" rx="12" fill="#D52B1E"/>
+  <rect x="40" y="30" width="120" height="50" rx="12" fill="url(#redPat)"/>
+  <rect x="40" y="30" width="120" height="50" rx="12" fill="url(#depthGrad)" opacity="0.3"/>
+  
+  <rect x="40" y="80" width="120" height="45" fill="#FFFFFF"/>
+  <rect x="40" y="80" width="120" height="45" fill="url(#whitePat)"/>
+  <rect x="40" y="80" width="120" height="45" fill="url(#depthGrad)" opacity="0.2"/>
+  
+  <rect x="40" y="125" width="120" height="45" rx="0 0 12 12" fill="#0038A8"/>
+  <rect x="40" y="125" width="120" height="45" rx="0 0 12 12" fill="url(#bluePat)"/>
+  <rect x="40" y="125" width="120" height="45" rx="0 0 12 12" fill="url(#depthGrad)" opacity="0.3"/>
+  
+  <!-- Asa prominente -->
+  <path d="M 60 30 Q 100 18 140 30" stroke="#0038A8" stroke-width="10" fill="none" stroke-linecap="round" opacity="0.3"/>
+  <path d="M 60 30 Q 100 18 140 30" stroke="#0038A8" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <rect x="57" y="28" width="6" height="4" rx="1" fill="#4B5563"/>
+  <rect x="137" y="28" width="6" height="4" rx="1" fill="#4B5563"/>
+  
+  <rect x="165" y="50" width="24" height="42" rx="4" fill="#D52B1E"/>
+  <rect x="165" y="50" width="24" height="42" rx="4" fill="url(#redPat)"/>
+  <rect x="168" y="53" width="18" height="36" rx="2" fill="#000000" opacity="0.1"/>
+  
+  <rect x="11" y="50" width="24" height="42" rx="4" fill="#D52B1E"/>
+  <rect x="11" y="50" width="24" height="42" rx="4" fill="url(#redPat)"/>
+  <rect x="14" y="53" width="18" height="36" rx="2" fill="#000000" opacity="0.1"/>
+  
+  <rect x="165" y="125" width="24" height="42" rx="4" fill="#0038A8"/>
+  <rect x="165" y="125" width="24" height="42" rx="4" fill="url(#bluePat)"/>
+  <rect x="168" y="128" width="18" height="36" rx="2" fill="#000000" opacity="0.1"/>
+  
+  <rect x="11" y="125" width="24" height="42" rx="4" fill="#0038A8"/>
+  <rect x="11" y="125" width="24" height="42" rx="4" fill="url(#bluePat)"/>
+  <rect x="14" y="128" width="18" height="36" rx="2" fill="#000000" opacity="0.1"/>
+  
+  <rect x="52" y="135" width="96" height="28" rx="8" fill="#0038A8"/>
+  <rect x="52" y="135" width="96" height="28" rx="8" fill="url(#bluePat)"/>
+  <rect x="52" y="135" width="96" height="28" rx="8" stroke="white" stroke-width="3" fill="none"/>
+  <line x1="70" y1="137" x2="130" y2="137" stroke="#E5E7EB" stroke-width="1.5" stroke-dasharray="2,2"/>
+  <circle cx="100" cy="137" r="3" fill="#9CA3AF"/>
+  
+  <g filter="drop-shadow(0 2px 2px rgba(0,0,0,0.2))">
+    <g transform="translate(60, 48)">
+      <path d="M 0 8 L 8 0 L 11 3 L 3 11 Z" fill="white"/>
+      <circle cx="13" cy="13" r="5" stroke="white" stroke-width="2.5" fill="none"/>
+      <circle cx="13" cy="13" r="2" fill="white"/>
+    </g>
+    
+    <path d="M 98 42 L 104 58 L 100 58 L 106 70 L 98 64 L 100 54 Z" fill="white"/>
+    
+    <g transform="translate(130, 50)">
+      <ellipse cx="0" cy="0" rx="6" ry="8" fill="white"/>
+      <rect x="-2" y="8" width="4" height="14" fill="white" rx="1"/>
+    </g>
+  </g>
+  
+  <g filter="drop-shadow(0 2px 3px rgba(0,0,0,0.3))">
+    <circle cx="100" cy="102" r="16" fill="#D52B1E"/>
+    <circle cx="100" cy="102" r="13" fill="white"/>
+    <circle cx="100" cy="102" r="10" fill="#0038A8"/>
+    <circle cx="100" cy="102" r="8" fill="white"/>
+    <path d="M 100 95 L 101.5 99 L 105.5 99 L 102.5 101.5 L 103.5 105.5 L 100 103 L 96.5 105.5 L 97.5 101.5 L 94.5 99 L 98.5 99 Z" fill="#0038A8"/>
+  </g>
+  
+  <g filter="drop-shadow(0 1px 2px rgba(0,0,0,0.2))">
+    <g transform="translate(63, 95)">
+      <path d="M 0 5 Q 3 0 7 3 Q 9 7 7 13 Q 3 16 0 13 Q -2 9 0 5" fill="#6B7280"/>
+      <line x1="3.5" y1="3" x2="3.5" y2="14" stroke="white" stroke-width="2"/>
+    </g>
+    
+    <g transform="translate(133, 95)">
+      <circle cx="0" cy="6" r="6" fill="#6B7280"/>
+      <path d="M -8 17 Q -3 20 0 17 Q 3 20 8 17" stroke="#6B7280" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M -5 8 Q 0 6 5 8" stroke="#0038A8" stroke-width="2" fill="none"/>
+    </g>
+  </g>
+  
+  <text x="100" y="190" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#1F2937" text-anchor="middle">conecta</text>
+</svg>
+
