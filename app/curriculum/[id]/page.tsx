@@ -2,11 +2,10 @@
 
 import { useParams, useRouter } from 'next/navigation'
 import { ArrowLeft, Award, Briefcase, GraduationCap, Star, Calendar, MapPin, Phone, Mail, CheckCircle2 } from 'lucide-react'
-import { getProfessionalById } from '@/lib/professionals'
+import { getProfessionalById, type Professional } from '@/lib/professionals'
 import { getAvatarUrl } from '@/lib/avatars'
 
-// Datos ficticios de curriculum para demo
-const getCurriculumData = (professional: any) => {
+function getCurriculumData(professional: Professional) {
   const curricula: { [key: string]: any } = {
     // Plomeros
     'juan-gomez': {
@@ -189,7 +188,6 @@ export default function CurriculumPage() {
   const params = useParams()
   const router = useRouter()
   const professional = getProfessionalById(params.id as string)
-  const p = professional as any
 
   if (!professional) {
     return (
@@ -253,12 +251,11 @@ export default function CurriculumPage() {
                 />
               </div>
               {/* Verified badge */}
-{/* Verified badge */}
-{p?.verifiedPoliceRecord ? (
-  <div className="absolute -bottom-2 -right-2 bg-green-500 rounded-full p-1">
-    <CheckCircle2 className="w-6 h-6 text-white" />
-  </div>
-) : null}
+              {professional?.verifiedPoliceRecord ? (
+                <div className="absolute -bottom-2 -right-2 bg-green-500 rounded-full p-1">
+                  <CheckCircle2 className="w-6 h-6 text-white" />
+                </div>
+              ) : null}
 
             </div>
             
