@@ -189,6 +189,7 @@ export default function CurriculumPage() {
   const params = useParams()
   const router = useRouter()
   const professional = getProfessionalById(params.id as string)
+  const p = professional as any
 
   if (!professional) {
     return (
@@ -252,11 +253,13 @@ export default function CurriculumPage() {
                 />
               </div>
               {/* Verified badge */}
-              {professional.verifiedPoliceRecord && (
-                <div className="absolute -bottom-2 -right-2 bg-green-500 rounded-full p-1">
-                  <CheckCircle2 className="w-6 h-6 text-white" />
-                </div>
-              )}
+{/* Verified badge */}
+{p?.verifiedPoliceRecord ? (
+  <div className="absolute -bottom-2 -right-2 bg-green-500 rounded-full p-1">
+    <CheckCircle2 className="w-6 h-6 text-white" />
+  </div>
+) : null}
+
             </div>
             
             <div className="flex-1 text-center md:text-left">
